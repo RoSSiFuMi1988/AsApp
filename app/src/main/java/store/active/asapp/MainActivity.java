@@ -24,7 +24,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    public LocationFragment lf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +60,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                fragment = new LocationFragment();
-
-                //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
+                fragment = new TicketPageFragment();
                 break;
             case 4:
+                fragment = new LocationFragment();
+                //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
+                break;
+            case 5:
                 Context context = this.getApplicationContext();
                 UrlRedirect urlRed = new UrlRedirect(context);
                 urlRed.redirect();
@@ -124,15 +125,5 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         return super.onOptionsItemSelected(item);
     }
-
-    /*private void addMapFragment() {
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        fragment = new MapFragment();
-        transaction.add(R.id.mapView, fragment);
-        transaction.commit();
-    }*/
-
-
 
 }

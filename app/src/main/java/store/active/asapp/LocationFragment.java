@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -14,13 +15,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.CameraPosition;
 
 public class LocationFragment extends Fragment {
 
     MapView mMapView;
     private GoogleMap googleMap;
+    //position to show on map
     static final LatLng Arpaia = new LatLng(41.0367800,14.5517500);
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class LocationFragment extends Fragment {
         mMapView = (MapView) rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
 
-        //mMapView.onResume();
+        mMapView.onResume();
 
         try {
             MapsInitializer.initialize(this.getActivity().getApplicationContext());

@@ -57,7 +57,7 @@ public class ContactPageFragment extends Fragment {
 
 
                     /**@param email_address picked from strings.xml at voice AddressOfMailToSend*/
-                    //make new Intent for sending email
+                    //make new Intent for sending email use for address a string declared in strings.xml
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", getString(R.string.AddressOfMailToSend), null));
                     //adding subject to email
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, object);
@@ -65,9 +65,6 @@ public class ContactPageFragment extends Fragment {
                     emailIntent.putExtra(Intent.EXTRA_TEXT, message);
                     //launch the activity created
                     startActivity(Intent.createChooser(emailIntent, "Send email..."));
-                    //create toast to advise sending email.
-                    //Toast toast = Toast.makeText(context, text, duration);
-                    //toast.show();
 
                     //clear the fields filled by the user
                     clearFields(etName,etMailResponse,etObject,etMessage);
