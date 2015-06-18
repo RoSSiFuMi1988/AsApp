@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Active Store</string>
-    <string name="drawer_open">Menu opened</string>
-    <string name="drawer_close">Menu closed</string>
-    <string name="action_settings">Settings</string>
-    <string name="AddressOfMailToSend">iovine.antonio.1988@libero.it</string>
-    <string name="AddressMailForTicket">ticketingemail@gmail.com</string>
+<string name="app_name">Active Store</string>
+<string name="drawer_open">Menu opened</string>
+<string name="drawer_close">Menu closed</string>
+<string name="action_settings">Settings</string>
+<string name="AddressOfMailToSend">info@active-store.it</string>
+<string name="AddressMailForTicket">info@active-store.it</string>
 </resources>

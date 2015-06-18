@@ -21,7 +21,7 @@ public class LocationFragment extends Fragment {
     MapView mMapView;
     private GoogleMap googleMap;
     //position to show on map
-    static final LatLng Arpaia = new LatLng(41.0367800,14.5517500);
+    static final LatLng ActiveStore = new LatLng(41.0638537,14.5596528);
 
 
 
@@ -44,9 +44,9 @@ public class LocationFragment extends Fragment {
         //adding the view of the construction
         googleMap.setBuildingsEnabled(true);
         //adding the marker to the point
-        Marker Arp = googleMap.addMarker(new MarkerOptions().position(Arpaia));
+        Marker Arp = googleMap.addMarker(new MarkerOptions().position(ActiveStore));
         //moving the camera close to the marker
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Arpaia, 14));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ActiveStore, 14));
 
         return rootView;
     }
