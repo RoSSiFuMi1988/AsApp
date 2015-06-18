@@ -53,6 +53,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
                 break;
             case 1:
+                fragment = new Phone_contact_Fragment();
                 //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
                 break;
             case 2:
