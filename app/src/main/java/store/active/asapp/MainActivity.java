@@ -119,10 +119,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         // as you specify a parent activity in AndroidManifest.ic_coding.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+       /* //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
