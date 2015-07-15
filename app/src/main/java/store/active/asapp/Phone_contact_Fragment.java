@@ -18,20 +18,28 @@ public class Phone_contact_Fragment extends Fragment {
 
     private String facebookAccount = new String("https://www.facebook.com/activestoreonline");
     private String twitterAccount = new String("https://twitter.com/activestore");
+    private String officeNumber = "0823711976";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.phone_contact_fragment, container, false);
 
 
-        ImageView imv0 = (ImageView) rootView.findViewById(R.id.headerPhoneContactImageView);
-        imv0.setImageResource(R.drawable.logo_completo);
+        //ImageView imv0 = (ImageView) rootView.findViewById(R.id.headerPhoneContactImageView);
+        //imv0.setImageResource(R.drawable.logo_completo);
+
+        ImageButton phoneButton = (ImageButton) rootView.findViewById(R.id.phoneButton);
+        //setting image for the button
+        phoneButton.setImageResource(R.drawable.phone_button);
+        //setting background color to TRANSPARENT
+        phoneButton.setBackgroundColor(Color.TRANSPARENT);
 
         ImageButton facebookButton = (ImageButton) rootView.findViewById(R.id.facebookButton);
         //setting image for the button
         facebookButton.setImageResource(R.drawable.facebook_button);
         //setting background color to TRANSPARENT
         facebookButton.setBackgroundColor(Color.TRANSPARENT);
+
         ImageButton twitterButton = (ImageButton) rootView.findViewById(R.id.twitterButton);
         //setting image for the button
         twitterButton.setImageResource(R.drawable.twitter_button);
@@ -54,6 +62,13 @@ public class Phone_contact_Fragment extends Fragment {
             }
         });
 
+        //on button click the app redirect to twitter page
+        phoneButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + officeNumber));
+                startActivity(intent);
+            }
+        });
 
         return rootView;
 
