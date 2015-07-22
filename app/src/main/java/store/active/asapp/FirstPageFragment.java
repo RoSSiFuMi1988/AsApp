@@ -33,7 +33,7 @@ public class FirstPageFragment extends Fragment {
 		ImageView imv0 = (ImageView) rootView.findViewById(R.id.imageView0);
 		imv0.setImageResource(R.drawable.logo_completo);
 
-		//setting behavior of changing image
+		//setting behavior of ImageSwither to change image
 		slide_in_left = AnimationUtils.loadAnimation(this.getActivity(), android.R.anim.slide_in_left);
 		slide_out_right = AnimationUtils.loadAnimation(this.getActivity(), android.R.anim.slide_out_right);
 		imageSwitcher = (ImageSwitcher) rootView.findViewById(R.id.imageSwitcher);
@@ -56,11 +56,7 @@ public class FirstPageFragment extends Fragment {
 			}
 		});
 
-		//set Index of the image array for first image to show
-		curIndex = 0;
-		imageSwitcher.setImageResource(imageResources[curIndex]);
 		//set Animation for imageSwitcher
-
 		imageSwitcher.setInAnimation(slide_in_left);
 		imageSwitcher.setOutAnimation(slide_out_right);
 
@@ -71,8 +67,6 @@ public class FirstPageFragment extends Fragment {
 				imageSwitcher.setImageResource(i++ % 2 == 0 ? R.drawable.slider01 : R.drawable.slider02);
 				imageSwitcher.postDelayed(this, 5000);
 			}}, 5000);
-
-
 
 		return rootView;
 	}
