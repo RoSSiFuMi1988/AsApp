@@ -60,7 +60,7 @@ public class FirstPageFragment extends Fragment {
 		imageSwitcher.setInAnimation(slide_in_left);
 		imageSwitcher.setOutAnimation(slide_out_right);
 
-		//method for automatic switch of the image into the ImageSwitcher
+		//method for automatic switch of the image into the ImageSwitcher after delay
 		imageSwitcher.postDelayed(new Runnable() {
 			int i = 0;
 			public void run() {
