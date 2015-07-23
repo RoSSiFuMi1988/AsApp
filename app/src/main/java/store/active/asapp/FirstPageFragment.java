@@ -15,14 +15,13 @@ import android.widget.ViewSwitcher;
 
 public class FirstPageFragment extends Fragment {
 
-	private String image1_url = "http://www.active-store.it/img/slider01.png";
+	//private String image1_url = "http://www.active-store.it/img/slider01.png";
 	ImageSwitcher imageSwitcher;
 	//array of image resources for the ImageSwitcher
 	int imageResources[] = {
 			R.drawable.slider01,R.drawable.slider02,
 	};
 	Animation slide_in_left, slide_out_right;
-	int curIndex;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,6 +58,8 @@ public class FirstPageFragment extends Fragment {
 		//set Animation for imageSwitcher
 		imageSwitcher.setInAnimation(slide_in_left);
 		imageSwitcher.setOutAnimation(slide_out_right);
+		//set first image of the Image Switcher
+		imageSwitcher.setImageResource(R.drawable.slider02);
 
 		//method for automatic switch of the image into the ImageSwitcher after delay
 		imageSwitcher.postDelayed(new Runnable() {
