@@ -62,7 +62,7 @@ public class Phone_contact_Fragment extends Fragment {
             }
         });
 
-        //on button click the app redirect to twitter page
+        //on button click the app make a call to the office
         phoneButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + officeNumber));
