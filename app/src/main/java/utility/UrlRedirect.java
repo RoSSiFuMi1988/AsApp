@@ -1,13 +1,10 @@
-package Redirect;
+package utility;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.util.Log;
 import android.widget.Toast;
-
-import static android.support.v4.app.ActivityCompat.startActivity;
 
 /**
  * Classe utilizzata per il redirect verso una particolare pagina web, in questo caso profilo personale Linkedin
