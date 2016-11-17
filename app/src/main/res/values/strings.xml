@@ -10,4 +10,5 @@
   <string name="navigation_drawer_open">Open navigation drawer</string>
   <string name="navigation_drawer_close">Close navigation drawer</string>
   <string name="title_activity_main">MainActivity</string>
+  <string name="company_description">Active Store è un negozio di informatica, telefonia e sistemi di sicurezza e si rivolge essenzialmente alla clientela sia aziendale che privata della valle caudina. Crediamo che il solo modo per offrire prodotti e servizi di qualità sia quello di avere un rapporto diretto con il cliente.Active Store è anche centro di assistenza tecnica qualificata per la riparazione di computer, portatili, telefoni cellulari, tablet, etc...</string>
 </resources>

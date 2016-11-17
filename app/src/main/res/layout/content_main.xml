@@ -40,17 +40,7 @@
           android:layout_height="match_parent">
 
           <TextView
-            android:id="@+id/monument_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/monument_title"
-            android:padding="8dp"
-            android:textColor="#666"
-            android:textSize="14dp"
-            android:text="Lorem Ipsum Description"/>
-
-          <TextView
-            android:id="@+id/monument_title"
+            android:id="@+id/company_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="3"
@@ -58,9 +48,21 @@
             android:textColor="#222"
             android:textStyle="bold"
             android:textSize="22dp"
-            android:text="Lorem Ipsum"
+            android:text="Informazioni Azienda"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"/>
+
+          <TextView
+            android:id="@+id/company_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/company_title"
+            android:padding="8dp"
+            android:textColor="#666"
+            android:textSize="14dp"
+            android:text="@string/company_description"/>
+
+
 
         </RelativeLayout>
       </android.support.v4.widget.NestedScrollView>
