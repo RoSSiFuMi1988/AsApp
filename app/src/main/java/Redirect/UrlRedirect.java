@@ -16,11 +16,13 @@ import static android.support.v4.app.ActivityCompat.startActivity;
 public class UrlRedirect {
 
     Context context;
+    String URL_TO_REDIRECT;
     //url of the page to redirect
-    static String URL_TO_REDIRECT = new String ("https://it.linkedin.com/pub/antonio-francesco-iovine/39/aa8/823");
+    //static String URL_TO_REDIRECT = new String ("https://it.linkedin.com/pub/antonio-francesco-iovine/39/aa8/823");
 
-   public UrlRedirect(Context context){
+   public UrlRedirect(Context context,String url_to_redirect){
         this.context = context;
+       this.URL_TO_REDIRECT = url_to_redirect;
     }
 
     /**

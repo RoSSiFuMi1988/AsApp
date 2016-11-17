@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/home"
+      android:icon="@drawable/ic_home"
+      android:title="Home"/>
+    <item
+      android:id="@+id/send_email"
+      android:icon="@drawable/ic_mail"
+      android:title="Contattaci via Mail"/>
+    <item
+      android:id="@+id/send_failure_ticket"
+      android:icon="@drawable/ic_mail"
+      android:title="Apertura ticket guasto"/>
+    <item
+      android:id="@+id/position"
+      android:icon="@drawable/ic_location"
+      android:title="Dove Siamo"/>
+
+  </group>
+
+  <item android:title="Sviluppo App">
+    <menu>
+      <item
+        android:id="@+id/author"
+        android:icon="@drawable/ic_coding"
+        android:title="Sviluppatore"/>
+    </menu>
+  </item>
+
+</menu>

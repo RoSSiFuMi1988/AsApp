@@ -40,7 +40,7 @@ public class LocationFragment extends Fragment {
             e.printStackTrace();
         }
 
-        googleMap = mMapView.getMap();
+        //googleMap = mMapView.getMap();
         //adding the view of the construction
         googleMap.setBuildingsEnabled(true);
         //adding the marker to the point
