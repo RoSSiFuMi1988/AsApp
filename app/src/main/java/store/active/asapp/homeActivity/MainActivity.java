@@ -1,4 +1,4 @@
-package store.active.asapp;
+package store.active.asapp.homeActivity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,9 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import store.active.asapp.navigation.NavigationActivity;
+import com.daimajia.slider.library.SliderLayout;
+
+import store.active.asapp.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    SliderLayout mSliderLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +28,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main_activity);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        mSliderLayout = (SliderLayout) findViewById(R.id.slider_home);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
