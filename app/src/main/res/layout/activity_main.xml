@@ -35,12 +35,28 @@
   <include layout="@layout/content_main"/>
 
   <android.support.design.widget.FloatingActionButton
-    android:id="@+id/fab"
+    android:id="@+id/fab_call"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|start"
+    android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@drawable/ic_phone_fab_button"/>
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab_twitter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@drawable/ic_twitter_fab_button"/>
+
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab_facebook"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom|end"
     android:layout_margin="@dimen/fab_margin"
-    app:srcCompat="@android:drawable/ic_dialog_email"/>
+    app:srcCompat="@drawable/ic_facebook_fab_button"/>
 
 </android.support.design.widget.CoordinatorLayout>
 

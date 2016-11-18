@@ -36,13 +36,13 @@ public class Phone_contact_Fragment extends Fragment {
 
         ImageButton facebookButton = (ImageButton) rootView.findViewById(R.id.facebookButton);
         //setting image for the button
-        facebookButton.setImageResource(R.drawable.facebook_button);
+        facebookButton.setImageResource(R.drawable.ic_facebook_fab_button);
         //setting background color to TRANSPARENT
         facebookButton.setBackgroundColor(Color.TRANSPARENT);
 
         ImageButton twitterButton = (ImageButton) rootView.findViewById(R.id.twitterButton);
         //setting image for the button
-        twitterButton.setImageResource(R.drawable.twitter_button);
+        twitterButton.setImageResource(R.drawable.ic_twitter_fab_button);
         //setting background color to TRANSPARENT
         twitterButton.setBackgroundColor(Color.TRANSPARENT);
 

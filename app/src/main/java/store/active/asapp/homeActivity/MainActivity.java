@@ -9,20 +9,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-
 import java.util.HashMap;
-
 import store.active.asapp.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SliderLayout mSliderLayout;
-    HomePresenter mPresenter = new HomePresenter();
+    MainPresenter mPresenter = new MainPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +36,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mSliderLayout = (SliderLayout) findViewById(R.id.slider_home);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_call = (FloatingActionButton) findViewById(R.id.fab_call);
+        fab_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Main Activity fab", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar.make(view, "Effettuo Chiamata all'ufficio", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                String phone = getString(R.string.office_phone);
+                Log.e("string passed",phone);
+                startActivity(mPresenter.makeCall(phone));
+            }
+        });
+
+        FloatingActionButton fab_facebook = (FloatingActionButton) findViewById(R.id.fab_facebook);
+        fab_facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Apro Profilo Facebook", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                String facebook = getString(R.string.facebook_account);
+                Log.e("string passed",facebook);
+               startActivity(mPresenter.openSocial(facebook));
+            }
+        });
+
+        FloatingActionButton fab_twitter = (FloatingActionButton) findViewById(R.id.fab_twitter);
+        fab_twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Apro Profilo Twitter", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                String twitter = getString(R.string.twitter_account);
+                Log.e("string passed",twitter);
+                startActivity(mPresenter.openSocial(twitter));
             }
         });
 
