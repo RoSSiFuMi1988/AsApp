@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,11 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
+import java.util.HashMap;
 
 import store.active.asapp.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SliderLayout mSliderLayout;
+    HomePresenter mPresenter = new HomePresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
+
+        //Set SliderLayout to show the image in drawable folder
+        prepareSliderLayout(mPresenter.getListImageFromResource());
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -84,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragment;
 
         if (id == R.id.home) {
 
@@ -101,5 +106,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main_activity);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //Method for prepare image to show into sliderLayout loaded from url of QrCode
+    public void prepareSliderLayout(HashMap<String,Integer> file_maps){
+
+        for(String name : file_maps.keySet()){
+            TextSliderView mTextSliderView = new TextSliderView(this);
+            mTextSliderView
+                    .description(name)
+                    .image(file_maps.get(name));
+
+            mSliderLayout.addSlider(mTextSliderView);
+        }
     }
 }

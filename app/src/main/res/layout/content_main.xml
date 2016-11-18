@@ -6,7 +6,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   app:layout_behavior="@string/appbar_scrolling_view_behavior"
-  tools:context="store.active.asapp.MainActivity"
+  tools:context="store.active.asapp.homeActivity.MainActivity"
   tools:showIn="@layout/activity_main">
 
   <LinearLayout
@@ -15,7 +15,7 @@
     android:orientation="vertical">
 
     <com.daimajia.slider.library.SliderLayout
-      android:id="@+id/slider"
+      android:id="@+id/slider_home"
       android:layout_width="wrap_content"
       android:layout_height="200dp"
       > </com.daimajia.slider.library.SliderLayout>
@@ -26,7 +26,7 @@
       android:id="@+id/article_card"
       android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_height="380dp"
+      android:layout_height="250dp"
       android:layout_margin="8dp">
 
       <android.support.v4.widget.NestedScrollView
@@ -61,9 +61,7 @@
             android:textColor="#666"
             android:textSize="14dp"
             android:text="@string/company_description"/>
-
-
-
+          
         </RelativeLayout>
       </android.support.v4.widget.NestedScrollView>
     </android.support.v7.widget.CardView>
