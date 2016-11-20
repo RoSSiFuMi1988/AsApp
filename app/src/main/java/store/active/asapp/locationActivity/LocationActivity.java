@@ -1,10 +1,11 @@
-package store.active.asapp.contactActivity;
+package store.active.asapp.locationActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,30 +14,36 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import store.active.asapp.R;
+import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
-import store.active.asapp.locationActivity.LocationActivity;
-import store.active.asapp.models.Mail;
 import store.active.asapp.ticketActivity.TicketActivity;
 
-public class ContactActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class LocationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,OnMapReadyCallback{
+
+    private GoogleMap mMap;
+    //position to show on map
+    static final LatLng ActiveStore = new LatLng(41.0638537,14.5596528);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_location);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //get the emailAddress from string.xml file
-        final String ADDRESSOFEMAILTOSEND = getString(R.string.AddressOfMailToSend);
-        //get the context
-        final Context context = this.getApplicationContext();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_contact_activity);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_location_activity);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -44,40 +51,14 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final EditText etName = (EditText) findViewById(R.id.editTextName);
-        final EditText etMailResponse = (EditText) findViewById(R.id.editTextMail);
-        final EditText etObject = (EditText) findViewById(R.id.editTextSubject);
-        final EditText etMessage = (EditText) findViewById(R.id.editTextMessage);
-        final CharSequence text = "Email inviata riceverai una risposta il prima possibile!";
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        mapFragment.getMapAsync(this);
 
-        Button btnSend = (Button) findViewById(R.id.buttonSubmit);
-
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //extract Text from the EditText
-                String name = etName.getText().toString();
-                String mailaddress = etMailResponse.getText().toString();
-                String object = etObject.getText().toString();
-                String message = etMessage.getText().toString();
-
-                //Make mail object
-                Mail mail = new Mail(name,mailaddress,object,message);
-                //Set-up presenter
-                ContactPresenter cp = new ContactPresenter(mail,context,ADDRESSOFEMAILTOSEND);
-                //launch activity
-                startActivity(Intent.createChooser(cp.sendMail(), "Invio email..."));
-                //launch snackbar to view the error message
-                Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                //clear the fields filled by the user
-                cp.clearFields(etName,etMailResponse,etObject,etMessage);
-            }
-        });
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_contact_activity);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_location_activity);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -136,8 +117,17 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_contact_activity);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_location_activity);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        mMap = googleMap;
+        mMap.addMarker(new MarkerOptions().position(ActiveStore).title("Active Store"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ActiveStore,14));
+
     }
 }

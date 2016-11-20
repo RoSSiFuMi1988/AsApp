@@ -19,6 +19,7 @@ import android.widget.EditText;
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
+import store.active.asapp.locationActivity.LocationActivity;
 import store.active.asapp.models.FailureTicket;
 
 public class TicketActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -123,6 +124,8 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
                 startActivity(ticketIntent);
                 break;
             case R.id.position:
+                Intent positionIntent = new Intent(this, LocationActivity.class);
+                startActivity(positionIntent);
                 break;
             case R.id.author:
                 break;

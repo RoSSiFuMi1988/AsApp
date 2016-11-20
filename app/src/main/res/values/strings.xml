@@ -16,4 +16,5 @@
   <string name="office_phone">0823711976</string>
   <string name="title_activity_contact">Contattaci ...</string>
   <string name="title_activity_ticket">Apertura Ticket Guasto</string>
+  <string name="title_activity_location">Dove Siamo</string>
 </resources>
