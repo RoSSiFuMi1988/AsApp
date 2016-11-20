@@ -3,7 +3,7 @@ package store.active.asapp.models;
 public class FailureTicket {
     String pIva,ticketRequest;
 
-    public FailureTicket(String _pIva, String _ticketRequest, String _context){
+    public FailureTicket(String _pIva, String _ticketRequest){
         this.pIva = _pIva;
         this.ticketRequest = _ticketRequest;
     }

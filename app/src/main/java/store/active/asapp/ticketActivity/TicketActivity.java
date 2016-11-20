@@ -1,8 +1,8 @@
 package store.active.asapp.ticketActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
+import store.active.asapp.models.FailureTicket;
 
 public class TicketActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -34,6 +37,38 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        final String ADDRESS_TO_SEND_FAILURE_TICKET = getString(R.string.AddressMailForTicket);
+
+        final EditText etId = (EditText) findViewById(R.id.editTextId);
+        final EditText etMessage = (EditText) findViewById(R.id.editTextMessage);
+        final Context context = this.getApplicationContext();
+        final CharSequence text = "Ticket registrato nel sistema riceverai contatti appena il guasto sarà risolto!";
+
+        Button btnSend = (Button) findViewById(R.id.buttonSubmit);
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //extract Text from the EditText
+                String id = etId.getText().toString();
+                String message = etMessage.getText().toString();
+                //starting from text of the editText create the Failure Ticket object
+                FailureTicket ft = new FailureTicket(id,message);
+                //create ticketPresenter
+                final TicketPresenter tp = new TicketPresenter(ft,ADDRESS_TO_SEND_FAILURE_TICKET,context);
+                //launch snackbar to view the error message
+                Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                //launch the activity created
+                startActivity(Intent.createChooser(tp.openFailureTicket(), "Apertura Ticket guasto..."));
+                //clear the fields filled by the user
+                tp.clearFields(etId,etMessage);
+
+
+            }
+        });
+
 
     }
     @Override
