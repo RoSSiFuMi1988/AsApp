@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Snackbar.make(view, "Effettuo Chiamata all'ufficio", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 String phone = getString(R.string.office_phone);
-                Log.e("string passed",phone);
                 startActivity(mPresenter.makeCall(phone));
             }
         });
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Snackbar.make(view, "Apro Profilo Facebook", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 String facebook = getString(R.string.facebook_account);
-                Log.e("string passed",facebook);
                startActivity(mPresenter.openSocial(facebook));
             }
         });
@@ -66,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Snackbar.make(view, "Apro Profilo Twitter", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 String twitter = getString(R.string.twitter_account);
-                Log.e("string passed",twitter);
                 startActivity(mPresenter.openSocial(twitter));
             }
         });
