@@ -21,6 +21,7 @@ import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
 import store.active.asapp.locationActivity.LocationActivity;
 import store.active.asapp.models.FailureTicket;
+import utility.UrlRedirect;
 
 public class TicketActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -128,6 +129,8 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
                 startActivity(positionIntent);
                 break;
             case R.id.author:
+                UrlRedirect urlRed = new UrlRedirect(this.getApplicationContext(),getString(R.string.linkedinDeveloper));
+                urlRed.redirect();
                 break;
             default:
                 break;

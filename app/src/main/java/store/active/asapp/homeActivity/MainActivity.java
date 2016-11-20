@@ -21,6 +21,7 @@ import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.locationActivity.LocationActivity;
 import store.active.asapp.ticketActivity.TicketActivity;
+import utility.UrlRedirect;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SliderLayout mSliderLayout;
@@ -132,6 +133,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(positionIntent);
                 break;
             case R.id.author:
+                UrlRedirect urlRed = new UrlRedirect(this.getApplicationContext(),getString(R.string.linkedinDeveloper));
+                urlRed.redirect();
                 break;
             default:
                 break;
