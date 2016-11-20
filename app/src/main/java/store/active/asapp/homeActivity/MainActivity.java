@@ -1,5 +1,6 @@
 package store.active.asapp.homeActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import java.util.HashMap;
 import store.active.asapp.R;
+import store.active.asapp.contactActivity.ContactActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SliderLayout mSliderLayout;
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main_activity);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -114,16 +116,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.home) {
-
-        } else if (id == R.id.send_email) {
-
-        } else if (id == R.id.send_failure_ticket) {
-
-        } else if (id == R.id.position) {
-
-        } else if (id == R.id.author) {
-
+        switch (id){
+            case R.id.home:
+                Intent homeIntent = new Intent(this, MainActivity.class);
+                startActivity(homeIntent);
+                break;
+            case R.id.send_email:
+                Intent mailIntent = new Intent(this, ContactActivity.class);
+                startActivity(mailIntent);
+                break;
+            case R.id.send_failure_ticket:
+                break;
+            case R.id.position:
+                break;
+            case R.id.author:
+                break;
+            default:
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main_activity);
