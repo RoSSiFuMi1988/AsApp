@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +19,7 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import java.util.HashMap;
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
+import store.active.asapp.ticketActivity.TicketActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     SliderLayout mSliderLayout;
@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(mailIntent);
                 break;
             case R.id.send_failure_ticket:
+                Intent ticketIntent = new Intent(this, TicketActivity.class);
+                startActivity(ticketIntent);
                 break;
             case R.id.position:
                 break;

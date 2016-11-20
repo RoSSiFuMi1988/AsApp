@@ -19,6 +19,7 @@ import android.widget.EditText;
 import store.active.asapp.R;
 import store.active.asapp.homeActivity.MainActivity;
 import store.active.asapp.models.Mail;
+import store.active.asapp.ticketActivity.TicketActivity;
 
 public class ContactActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -121,6 +122,8 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 startActivity(mailIntent);
                 break;
             case R.id.send_failure_ticket:
+                Intent ticketIntent = new Intent(this, TicketActivity.class);
+                startActivity(ticketIntent);
                 break;
             case R.id.position:
                 break;
