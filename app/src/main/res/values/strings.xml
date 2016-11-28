@@ -18,4 +18,6 @@
   <string name="title_activity_ticket">Apertura Ticket Guasto</string>
   <string name="title_activity_location">Dove Siamo</string>
   <string name="linkedinDeveloper">https://it.linkedin.com/pub/antonio-francesco-iovine/39/aa8/823</string>
+  <string name="title_activity_notification">Notifiche e comunicazioni</string>
+
 </resources>

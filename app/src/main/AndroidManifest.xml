@@ -68,20 +68,22 @@
       android:theme="@style/AppTheme">
     </activity>
 
-    <service
-      android:name=".notificationActivity.MyFirebaseMessagingService">
+    <service android:name=".notificationActivity.MyFirebaseMessagingService">
       <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT"/>
       </intent-filter>
     </service>
-
-    <service
-      android:name=".notificationActivity.MyFirebaseInstanceIDService">
+    <service android:name=".notificationActivity.MyFirebaseInstanceIDService">
       <intent-filter>
         <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
       </intent-filter>
     </service>
 
+    <activity
+      android:name=".notificationActivity.NotificationActivity"
+      android:label="@string/title_activity_notification"
+      android:theme="@style/AppTheme">
+    </activity>
   </application>
 
 </manifest>
