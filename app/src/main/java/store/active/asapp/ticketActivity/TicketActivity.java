@@ -21,7 +21,6 @@ import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
 import store.active.asapp.locationActivity.LocationActivity;
 import store.active.asapp.models.FailureTicket;
-import store.active.asapp.notificationActivity.NotificationActivity;
 import utility.UrlRedirect;
 
 public class TicketActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -132,10 +131,6 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
             case R.id.author:
                 UrlRedirect urlRed = new UrlRedirect(this.getApplicationContext(),getString(R.string.linkedinDeveloper));
                 urlRed.redirect();
-                break;
-            case R.id.notif_e_comunication:
-                Intent notificationIntent = new Intent(this, NotificationActivity.class);
-                startActivity(notificationIntent);
                 break;
             default:
                 break;

@@ -20,7 +20,6 @@ import java.util.HashMap;
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.locationActivity.LocationActivity;
-import store.active.asapp.notificationActivity.NotificationActivity;
 import store.active.asapp.ticketActivity.TicketActivity;
 import utility.UrlRedirect;
 
@@ -136,10 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.author:
                 UrlRedirect urlRed = new UrlRedirect(this.getApplicationContext(),getString(R.string.linkedinDeveloper));
                 urlRed.redirect();
-                break;
-            case R.id.notif_e_comunication:
-                Intent notificationIntent = new Intent(this, NotificationActivity.class);
-                startActivity(notificationIntent);
                 break;
             default:
                 break;

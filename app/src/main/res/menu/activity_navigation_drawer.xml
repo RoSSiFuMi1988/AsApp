@@ -18,10 +18,6 @@
       android:id="@+id/position"
       android:icon="@drawable/ic_location"
       android:title="Dove Siamo"/>
-    <item
-      android:id="@+id/notif_e_comunication"
-      android:icon="@drawable/ic_media_route_connecting_01_light"
-      android:title="Notifiche e comunicazioni"/>
   </group>
 
   <item android:title="Sviluppo App">

@@ -28,7 +28,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.homeActivity.MainActivity;
-import store.active.asapp.notificationActivity.NotificationActivity;
 import store.active.asapp.ticketActivity.TicketActivity;
 import utility.UrlRedirect;
 
@@ -116,10 +115,6 @@ public class LocationActivity extends AppCompatActivity implements NavigationVie
             case R.id.author:
                 UrlRedirect urlRed = new UrlRedirect(this.getApplicationContext(),getString(R.string.linkedinDeveloper));
                 urlRed.redirect();
-                break;
-            case R.id.notif_e_comunication:
-                Intent notificationIntent = new Intent(this, NotificationActivity.class);
-                startActivity(notificationIntent);
                 break;
             default:
                 break;
