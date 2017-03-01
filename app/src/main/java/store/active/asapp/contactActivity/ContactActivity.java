@@ -62,8 +62,12 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 String object = etObject.getText().toString();
                 String message = etMessage.getText().toString();
 
+                //Merge message body with mail address saved in field "Email di contatto."
+                String message_with_mailaddress = message.concat("\n").concat("Preghiamo di rispondere al seguente indirizzo email: ")
+                        .concat("\n").concat(mailaddress).concat("\n").concat("Cordiali Saluti.").concat("\n");
+
                 //Make mail object
-                Mail mail = new Mail(name,mailaddress,object,message);
+                Mail mail = new Mail(name,mailaddress,object,message_with_mailaddress);
                 //Set-up presenter
                 ContactPresenter cp = new ContactPresenter(mail,context,ADDRESSOFEMAILTOSEND);
                 //launch activity
