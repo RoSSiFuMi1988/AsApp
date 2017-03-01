@@ -14,35 +14,47 @@
   app:layout_behavior="@string/appbar_scrolling_view_behavior"
   tools:context="store.active.asapp.ticketActivity.TicketActivity"
   tools:showIn="@layout/activity_ticket">
-    <TextView
-      android:layout_width="366dp"
-      android:layout_height="wrap_content"
-      android:text="Partita Iva azienda / numero contratto assistenza"
-      android:id="@+id/TextViewId"
-      android:layout_gravity="center_horizontal|left"/>
-    <EditText
-      android:layout_width="366dp"
-      android:layout_height="wrap_content"
-      android:id="@+id/editTextId"/>
-    <TextView
-      android:layout_width="366dp"
-      android:layout_height="wrap_content"
-      android:text="Messaggio apertura ticket intervento"
-      android:id="@+id/textViewMessage"
-      android:layout_gravity="left"/>
 
-    <EditText
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+    <TableLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:stretchColumns="1">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+      android:id="@+id/editTextId"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      android:layout_marginRight="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/title_id_ticket_activity"
+      app:met_floatingLabel="highlight"
+      android:inputType="text"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+      android:id="@+id/editTextMessage"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      android:layout_marginRight="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/title_mess_ticket_activity"
+      app:met_floatingLabel="highlight"
       android:inputType="textMultiLine"
       android:lines="18"
       android:minLines="6"
       android:gravity="top|left"
       android:maxLines="20"
       android:scrollbars="vertical"
-      android:layout_width="366dp"
-      android:scrollHorizontally="false"
-      android:layout_height="wrap_content"
-      android:id="@+id/editTextMessage"
-      android:layout_weight="0.70" />
+      android:scrollHorizontally="false"/>
+
 
     <Button
       android:layout_width="342dp"
@@ -50,4 +62,7 @@
       android:text="Apri ticket"
       android:id="@+id/buttonSubmit"
       android:layout_gravity="center_horizontal"/>
+
+        </TableLayout>
+    </ScrollView>
 </LinearLayout>

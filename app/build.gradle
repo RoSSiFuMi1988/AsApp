@@ -46,6 +46,10 @@ dependencies {
 
     compile 'com.android.support:multidex:1.0.1'
 
+    //EditText in Material Design
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
