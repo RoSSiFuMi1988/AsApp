@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "656892133919",
+    "firebase_url": "https://store-active-asapp.firebaseio.com",
+    "project_id": "store-active-asapp",
+    "storage_bucket": "store-active-asapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656892133919:android:f700fcfee87e4eff",
+        "android_client_info": {
+          "package_name": "store.active.asapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656892133919-prf25ga5o6s9kgp6sjqda7qbqqt0gr88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdm7qcRp_JstJdPr3W2yI61Gmykfe4lw8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

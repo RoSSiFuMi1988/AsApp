@@ -1,52 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="store.active.asapp" >
+<manifest package="store.active.asapp"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+  <uses-permission android:name="android.permission.CALL_PHONE"/>
 
+  <!-- Creating Permission to receive Google Maps -->
+  <permission
+    android:name="com.arshad.map.permission.MAPS_RECEIVE"
+    android:protectionLevel="signature"/>
 
-    <!-- Creating Permission to receive Google Maps -->
-    <permission
-        android:name="com.arshad.map.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
+  <!-- Permission to receive Google Maps -->
+  <uses-permission android:name="com.arshad.map.permission.MAPS_RECEIVE"/>
 
-    <!-- Permission to receive Google Maps -->
-    <uses-permission android:name="com.arshad.map.permission.MAPS_RECEIVE" />
+  <!-- Maps API needs OpenGL ES 2.0. -->
+  <uses-feature
+    android:glEsVersion="0x00020000"
+    android:required="true"/>
 
-    <!-- Maps API needs OpenGL ES 2.0. -->
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-   
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_logo"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+  <application
+    android:allowBackup="true"
+    android:icon="@drawable/ic_logo"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme">
 
-        <!-- Google Maps Fragment API Key Data -->
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyA_nC89s2AbLA72sM6BQfENYdvE8e75nWY" />
+    <!-- Google Maps Fragment API Key Data -->
+    <meta-data
+      android:name="com.google.android.maps.v2.API_KEY"
+      android:value="AIzaSyA_nC89s2AbLA72sM6BQfENYdvE8e75nWY"/>
+    <meta-data
+      android:name="com.google.android.gms.version"
+      android:value="@integer/google_play_services_version"/>
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+    <activity
+      android:name=".homeActivity.MainActivity"
+      android:label="@string/app_name">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity
+      android:name=".navigation.NavigationActivity"
+      android:label="@string/title_activity_navigation"
+      android:theme="@style/AppTheme">
+    </activity>
+    <activity
+      android:name=".contactActivity.ContactActivity"
+      android:label="@string/title_activity_contact"
+      android:theme="@style/AppTheme">
+    </activity>
+    <activity
+      android:name=".ticketActivity.TicketActivity"
+      android:label="@string/title_activity_ticket"
+      android:theme="@style/AppTheme">
+    </activity>
+    <activity
+      android:name=".locationActivity.LocationActivity"
+      android:label="@string/title_activity_location"
+      android:theme="@style/AppTheme">
+    </activity>
 
-        <activity android:name=".MainActivity" android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <service android:name=".notificationActivity.MyFirebaseMessagingService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <service android:name=".notificationActivity.MyFirebaseInstanceIDService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+      </intent-filter>
+    </service>
+
+    <activity
+      android:name=".notificationActivity.NotificationActivity"
+      android:label="@string/title_activity_notification"
+      android:theme="@style/AppTheme">
+    </activity>
+  </application>
 
 </manifest>

@@ -1,8 +1,24 @@
 <resources>
-<string name="app_name">Active Store</string>
-<string name="drawer_open">Menu opened</string>
-<string name="drawer_close">Menu closed</string>
-<string name="action_settings">Settings</string>
-<string name="AddressOfMailToSend">info@active-store.it</string>
-<string name="AddressMailForTicket">info@active-store.it</string>
+  <string name="app_name">Active Store</string>
+  <string name="drawer_open">Menu opened</string>
+  <string name="drawer_close">Menu closed</string>
+  <string name="action_settings">Settings</string>
+  <string name="AddressOfMailToSend">info@active-store.it</string>
+  <string name="AddressMailForTicket">info@active-store.it</string>
+  <string name="title_activity_navigation">NavigationActivity</string>
+
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="title_activity_main">Home</string>
+  <string name="company_description">Active Store è un negozio di informatica, telefonia e sistemi di sicurezza e si rivolge essenzialmente alla clientela sia aziendale che privata della valle caudina. Crediamo che il solo modo per offrire prodotti e servizi di qualità sia quello di avere un rapporto diretto con il cliente.Active Store è anche centro di assistenza tecnica qualificata per la riparazione di computer, portatili, telefoni cellulari, tablet, etc...</string>
+  <string name="facebook_account">https://www.facebook.com/activestoreonline</string>
+  <string name="twitter_account">https://twitter.com/activestore</string>
+  <string name="office_phone">0823711976</string>
+  <string name="title_activity_contact">Contattaci ...</string>
+  <string name="title_activity_ticket">Apertura Ticket Guasto</string>
+  <string name="title_activity_location">Dove Siamo</string>
+  <string name="linkedinDeveloper">https://it.linkedin.com/pub/antonio-francesco-iovine/39/aa8/823</string>
+  <string name="title_activity_notification">Notifiche e comunicazioni</string>
+  <string name="title_id_ticket_activity">Partita Iva azienda / numero contratto assistenza</string>
+  <string name="title_mess_ticket_activity">Messaggio apertura ticket intervento</string>
 </resources>
