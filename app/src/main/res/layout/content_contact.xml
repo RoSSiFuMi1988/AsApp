@@ -25,71 +25,67 @@
       android:layout_height="match_parent"
       android:stretchColumns="1">
 
-      <TextView
-        android:layout_marginLeft="7dp"
-        android:paddingRight="7dp"
-        android:layout_width="366dp"
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome"
-        android:id="@+id/TextViewName"
-        android:layout_gravity="center_horizontal|left"/>
+        android:hint="Nome"
+        app:met_floatingLabel="highlight"
+        android:inputType="text"/>
 
-      <EditText
-        android:layout_marginLeft="7dp"
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextMail"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextName"/>
+        android:hint="Mail di contatto"
+        app:met_floatingLabel="highlight"
+        android:inputType="text"/>
 
-      <TextView
-        android:layout_marginLeft="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mail di contatto"
-        android:id="@+id/textViewMail"
-        android:layout_gravity="left"/>
-      <EditText
-        android:layout_marginLeft="7dp"
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextSubject"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextMail"/>
-      <TextView
-        android:layout_marginLeft="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Oggetto"
-        android:id="@+id/textViewSubject"
-        android:layout_gravity="left"/>
-      <EditText
-        android:layout_marginLeft="7dp"
+        android:hint="Oggetto"
+        app:met_floatingLabel="highlight"
+        android:inputType="text"/>
+
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextMessage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextSubject"/>
-      <TextView
-        android:layout_marginLeft="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Messaggio"
-        android:id="@+id/textViewMessage"
-        android:layout_gravity="left"/>
-      <EditText
-        android:layout_marginLeft="7dp"
+        android:hint="Messaggio"
+        app:met_floatingLabel="highlight"
         android:inputType="textMultiLine"
         android:lines="18"
         android:minLines="6"
         android:gravity="top|left"
         android:maxLines="20"
         android:scrollbars="vertical"
-        android:scrollHorizontally="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextMessage"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.90"/>
+        android:scrollHorizontally="false"/>
 
 
       <Button
-        android:layout_marginLeft="7dp"
-        android:layout_width="337dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Invia"
         android:id="@+id/buttonSubmit" android:layout_gravity="center_horizontal"/>
