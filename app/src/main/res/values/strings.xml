@@ -20,5 +20,5 @@
   <string name="linkedinDeveloper">https://it.linkedin.com/pub/antonio-francesco-iovine/39/aa8/823</string>
   <string name="title_activity_notification">Notifiche e comunicazioni</string>
   <string name="title_id_ticket_activity">Partita Iva azienda / numero contratto assistenza</string>
-  <string name="title_mess_ticket_activity">Messaggio apertura ticket intervento</string>
+  <string name="title_mess_ticket_activity">Breve descrizione del guasto/problema</string>
 </resources>
