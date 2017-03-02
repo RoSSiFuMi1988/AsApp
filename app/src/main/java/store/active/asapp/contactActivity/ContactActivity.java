@@ -10,10 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.dd.CircularProgressButton;
@@ -26,6 +28,8 @@ import store.active.asapp.ticketActivity.TicketActivity;
 import utility.UrlRedirect;
 
 public class ContactActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    boolean filledName,filledResponse,filledObject, filledMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,24 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
         final CircularProgressButton btnSend = (CircularProgressButton) findViewById(R.id.buttonSubmit);
         //Set button state to initial condition.
         btnSend.setProgress(0);
+        btnSend.setEnabled(false);
+
+        etMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateFields(etName,etMailResponse,etObject,etMessage,btnSend);
+            }
+        });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +106,13 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 btnSend.setProgress(100);
             }
         });
+    }
+
+    //Check if all EditText is filled with some text and activate Button.
+    public void validateFields(EditText etName, EditText etMailResponse, EditText etObject, EditText etMessage, CircularProgressButton btnSend){
+        if ((etName.getText().length() > 0) && (etMailResponse.getText().length() > 0) && (etObject.getText().length() > 0) && (etMessage.getText().length() > 0)){
+            btnSend.setEnabled(true);
+        }
     }
 
     @Override

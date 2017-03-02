@@ -10,6 +10,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,7 +51,25 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
         final CharSequence text = "Ticket registrato nel sistema riceverai contatti appena il guasto sarà risolto!";
 
         final CircularProgressButton btnSend = (CircularProgressButton) findViewById(R.id.buttonSubmit);
+        btnSend.setEnabled(false);
         btnSend.setProgress(0);
+
+        etMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateFields(etId,etMessage,btnSend);
+            }
+        });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +93,14 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
         });
 
     }
+
+    //Check if all EditText is filled with some text and activate Button.
+    public void validateFields(EditText etId,EditText etMessage, CircularProgressButton btnSend){
+        if ((etId.getText().length() > 0) && (etMessage.getText().length() > 0)){
+            btnSend.setEnabled(true);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_ticket_activity);
@@ -81,6 +109,11 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
         } else {
             super.onBackPressed();
         }
+    }
+
+    //check if EditText is empty, return true if edit Text is empty.
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
     }
 
     @Override
