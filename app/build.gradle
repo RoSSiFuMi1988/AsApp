@@ -49,6 +49,10 @@ dependencies {
     //EditText in Material Design
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
 
+    //Circle Progress button
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+
+
 
 }
 

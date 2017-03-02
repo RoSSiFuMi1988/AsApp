@@ -13,8 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+
+import com.dd.CircularProgressButton;
 
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
@@ -47,7 +48,8 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
         final Context context = this.getApplicationContext();
         final CharSequence text = "Ticket registrato nel sistema riceverai contatti appena il guasto sarà risolto!";
 
-        Button btnSend = (Button) findViewById(R.id.buttonSubmit);
+        final CircularProgressButton btnSend = (CircularProgressButton) findViewById(R.id.buttonSubmit);
+        btnSend.setProgress(0);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +68,9 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
                 startActivity(Intent.createChooser(tp.openFailureTicket(), "Apertura Ticket guasto..."));
                 //clear the fields filled by the user
                 tp.clearFields(etId,etMessage);
-
-
+                btnSend.setProgress(100);
             }
         });
-
 
     }
     @Override

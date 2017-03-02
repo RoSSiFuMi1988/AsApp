@@ -25,47 +25,51 @@
       android:layout_height="match_parent"
       android:stretchColumns="1">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-      android:id="@+id/editTextId"
-      android:layout_marginLeft="10dp"
-      android:layout_marginTop="5dp"
-      android:layout_marginBottom="5dp"
-      android:layout_marginRight="10dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/title_id_ticket_activity"
-      app:met_floatingLabel="highlight"
-      android:inputType="text"/>
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextId"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_id_ticket_activity"
+        app:met_floatingLabel="highlight"
+        android:inputType="text"/>
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-      android:id="@+id/editTextMessage"
-      android:layout_marginLeft="10dp"
-      android:layout_marginTop="5dp"
-      android:layout_marginBottom="5dp"
-      android:layout_marginRight="10dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/title_mess_ticket_activity"
-      app:met_floatingLabel="highlight"
-      android:inputType="textMultiLine"
-      android:lines="18"
-      android:minLines="6"
-      android:gravity="top|left"
-      android:maxLines="20"
-      android:scrollbars="vertical"
-      android:scrollHorizontally="false"/>
+      <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/editTextMessage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title_mess_ticket_activity"
+        app:met_floatingLabel="highlight"
+        android:inputType="textMultiLine"
+        android:lines="18"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="20"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false"/>
 
-
-    <Button
-      android:layout_marginLeft="10dp"
-      android:layout_marginTop="5dp"
-      android:layout_marginBottom="5dp"
-      android:layout_marginRight="10dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Apri ticket"
-      android:id="@+id/buttonSubmit"
-      android:layout_gravity="center_horizontal"/>
+        <com.dd.CircularProgressButton
+          android:id="@+id/buttonSubmit"
+          app:cpb_cornerRadius="48dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:layout_marginRight="10dp"
+          android:textColor="@color/white"
+          android:textSize="18sp"
+          android:layout_gravity="center_horizontal"
+          app:cpb_textComplete="Ticket Aperto"
+          app:cpb_textError="Errore Invio"
+          app:cpb_textIdle="Apri Ticket" />
 
         </TableLayout>
     </ScrollView>

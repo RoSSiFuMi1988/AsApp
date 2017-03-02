@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.dd.CircularProgressButton;
+
 import store.active.asapp.R;
 import store.active.asapp.homeActivity.MainActivity;
 import store.active.asapp.locationActivity.LocationActivity;
@@ -51,7 +53,9 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
         final EditText etMessage = (EditText) findViewById(R.id.editTextMessage);
         final CharSequence text = "Email inviata riceverai una risposta il prima possibile!";
 
-        Button btnSend = (Button) findViewById(R.id.buttonSubmit);
+        final CircularProgressButton btnSend = (CircularProgressButton) findViewById(R.id.buttonSubmit);
+        //Set button state to initial condition.
+        btnSend.setProgress(0);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +80,8 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //clear the fields filled by the user
                 cp.clearFields(etName,etMailResponse,etObject,etMessage);
+                //Change button state to sended.
+                btnSend.setProgress(100);
             }
         });
     }

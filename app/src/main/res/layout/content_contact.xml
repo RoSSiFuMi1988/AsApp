@@ -79,16 +79,21 @@
         android:scrollbars="vertical"
         android:scrollHorizontally="false"/>
 
-
-      <Button
+      <com.dd.CircularProgressButton
+        android:id="@+id/buttonSubmit"
+        app:cpb_cornerRadius="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Invia"
-        android:id="@+id/buttonSubmit" android:layout_gravity="center_horizontal"/>
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        app:cpb_textComplete="Inviata"
+        app:cpb_textError="Errore Invio"
+        app:cpb_textIdle="Invia" />
 
 
 
