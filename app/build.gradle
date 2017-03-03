@@ -41,9 +41,6 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
 
-    //firebase Notification
-    compile 'com.google.firebase:firebase-messaging:9.8.0'
-
     compile 'com.android.support:multidex:1.0.1'
 
     //EditText in Material Design
