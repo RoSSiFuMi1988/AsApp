@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.EditText;
 
+import com.dd.CircularProgressButton;
+
 import store.active.asapp.R;
 import store.active.asapp.models.Mail;
 
@@ -29,13 +31,17 @@ public class ContactPresenter {
         //adding body of message to email
         emailIntent.putExtra(Intent.EXTRA_TEXT, mailToSend.getBody_message());
 
+        emailIntent.putExtra("IS_SENDED",true);
+
         return emailIntent;
     }
 
-    public void clearFields(EditText et1, EditText et2, EditText et3, EditText et4){
+    public void clearFields(EditText et1, EditText et2, EditText et3, EditText et4, CircularProgressButton btnSend){
         et1.setText("");
         et2.setText("");
         et3.setText("");
         et4.setText("");
+        btnSend.setProgress(0);
+        btnSend.setEnabled(false);
     }
 }

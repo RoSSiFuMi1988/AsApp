@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,8 @@ import store.active.asapp.homeActivity.MainActivity;
 import store.active.asapp.locationActivity.LocationActivity;
 import store.active.asapp.models.FailureTicket;
 import utility.UrlRedirect;
+
+import static java.lang.Thread.sleep;
 
 public class TicketActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -82,13 +85,24 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
                 FailureTicket ft = new FailureTicket(id,message);
                 //create ticketPresenter
                 final TicketPresenter tp = new TicketPresenter(ft,ADDRESS_TO_SEND_FAILURE_TICKET,context);
-                //launch snackbar to view the error message
-                Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
                 //launch the activity created
                 startActivity(Intent.createChooser(tp.openFailureTicket(), "Apertura Ticket guasto..."));
-                //clear the fields filled by the user
-                tp.clearFields(etId,etMessage);
-                btnSend.setProgress(100);
+
+                //Bundle for extras of the intent.
+                Bundle bundle = tp.openFailureTicket().getExtras();
+
+                //Get Extra Value for sync email send with the UI
+                if(bundle.getBoolean("IS_SENDED")){
+                    Log.e("Ticket","Ticket Inviato");
+                    //launch snackbar to view the error message
+                    Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    //Change button state to Send.
+                    btnSend.setProgress(100);
+                    //clear the fields filled by the user
+                    tp.clearFields(etId,etMessage,btnSend);
+                }
+
             }
         });
 

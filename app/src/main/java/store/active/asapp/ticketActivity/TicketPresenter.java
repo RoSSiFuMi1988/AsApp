@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.EditText;
 
+import com.dd.CircularProgressButton;
+
 import store.active.asapp.models.FailureTicket;
+
+import static java.lang.Thread.sleep;
 
 public class TicketPresenter {
     Context context;
@@ -28,12 +32,16 @@ public class TicketPresenter {
         //adding body of message to email
         ticketIntent.putExtra(Intent.EXTRA_TEXT, failureTicket.getTicketRequest());
 
+        ticketIntent.putExtra("IS_SENDED",true);
+
         return ticketIntent;
     }
 
-    public void clearFields(EditText et1, EditText et2){
+    public void clearFields(EditText et1, EditText et2, CircularProgressButton btnSend){
         et1.setText("");
         et2.setText("");
+        btnSend.setProgress(0);
+        btnSend.setEnabled(false);
 
     }
 }

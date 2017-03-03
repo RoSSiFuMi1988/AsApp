@@ -27,6 +27,8 @@ import store.active.asapp.models.Mail;
 import store.active.asapp.ticketActivity.TicketActivity;
 import utility.UrlRedirect;
 
+import static java.lang.Thread.sleep;
+
 public class ContactActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     boolean filledName,filledResponse,filledObject, filledMessage;
@@ -98,12 +100,21 @@ public class ContactActivity extends AppCompatActivity implements NavigationView
                 ContactPresenter cp = new ContactPresenter(mail,context,ADDRESSOFEMAILTOSEND);
                 //launch activity
                 startActivity(Intent.createChooser(cp.sendMail(), "Invio email..."));
-                //launch snackbar to view the error message
-                Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                //clear the fields filled by the user
-                cp.clearFields(etName,etMailResponse,etObject,etMessage);
-                //Change button state to sended.
-                btnSend.setProgress(100);
+
+                //Bundle for extras of the intent.
+                Bundle bundle = cp.sendMail().getExtras();
+
+                //Get Extra Value for sync email send with the UI
+                if(bundle.getBoolean("IS_SENDED")){
+                    Log.e("Mail Inviata","Mail Inviata");
+                    //launch snackbar to view the error message
+                    Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    //Change button state to sended.
+                    btnSend.setProgress(100);
+                    //clear the fields filled by the user
+                    cp.clearFields(etName,etMailResponse,etObject,etMessage,btnSend);
+                }
+
             }
         });
     }
