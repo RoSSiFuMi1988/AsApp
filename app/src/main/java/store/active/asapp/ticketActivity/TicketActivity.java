@@ -52,6 +52,7 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
         final EditText etMessage = (EditText) findViewById(R.id.editTextMessage);
         final Context context = this.getApplicationContext();
         final CharSequence text = "Ticket registrato nel sistema riceverai contatti appena il guasto sarà risolto!";
+        final CharSequence err_text = "Il Ticket deve avere un messaggio di almeno 20 caratteri";
 
         final CircularProgressButton btnSend = (CircularProgressButton) findViewById(R.id.buttonSubmit);
         btnSend.setEnabled(false);
@@ -86,21 +87,27 @@ public class TicketActivity extends AppCompatActivity implements NavigationView.
                 //create ticketPresenter
                 final TicketPresenter tp = new TicketPresenter(ft,ADDRESS_TO_SEND_FAILURE_TICKET,context);
 
-                //launch the activity created
-                startActivity(Intent.createChooser(tp.openFailureTicket(), "Apertura Ticket guasto..."));
-
                 //Bundle for extras of the intent.
                 Bundle bundle = tp.openFailureTicket().getExtras();
 
-                //Get Extra Value for sync email send with the UI
-                if(bundle.getBoolean("IS_SENDED")){
-                    Log.e("Ticket","Ticket Inviato");
+                if(message.length() > 20){
+                    //Get Extra Value for sync email send with the UI
+                    if((bundle.getBoolean("IS_SENDED"))){
+                        Log.e("Ticket","Ticket Inviato");
+                        //launch the activity created
+                        startActivity(Intent.createChooser(tp.openFailureTicket(), "Apertura Ticket guasto..."));
+                        //launch snackbar to view the error message
+                        Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        //Change button state to Send.
+                        btnSend.setProgress(100);
+                        //clear the fields filled by the user
+                        tp.clearFields(etId,etMessage,btnSend);
+                    }
+                }
+
+                else{
                     //launch snackbar to view the error message
-                    Snackbar.make(v, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    //Change button state to Send.
-                    btnSend.setProgress(100);
-                    //clear the fields filled by the user
-                    tp.clearFields(etId,etMessage,btnSend);
+                    Snackbar.make(v, err_text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 }
 
             }
