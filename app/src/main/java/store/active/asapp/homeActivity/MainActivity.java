@@ -20,6 +20,7 @@ import java.util.HashMap;
 import store.active.asapp.R;
 import store.active.asapp.contactActivity.ContactActivity;
 import store.active.asapp.locationActivity.LocationActivity;
+import store.active.asapp.runtime_permission.PermissionManager;
 import store.active.asapp.ticketActivity.TicketActivity;
 import utility.UrlRedirect;
 
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        //Managing permission at runtime
+        PermissionManager manager = new PermissionManager(this);
+        manager.managingPermission();
 
         mSliderLayout = (SliderLayout) findViewById(R.id.slider_home);
 
